@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Painter Lab 06 </title>
+    </head>
+<body>
+
+
+<h2>Painter entry  venumadhavi kathi</h2>
+
+<form>
+    <label for="Password" class="form-label">The hidden painter name</label>
+    <input type="password" class="form-control" id="Password" value="Monet"> <br>
+
+    <label for="form1_guess">Guess the painter</label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+
+</form>
+
+<p id="result">The results will be displayed </p>
+
+<script> 
+
+good = 0;
+let oops = 0;
+
+function checkPainter(){
+    console.log("Check the guess")
+    password = document.getElementById("Password").value
+    guess = document.getElementById("form1_guess").value
+    confirmed = confirm("Are these values matched ?"+password+" and "+guess)
+    
+    out = document.getElementById("result")
+    if(password==guess){
+        alert("You got it right")
+        good=good+1
+        out.innerHTML=" Correct answer: "+ good + "Wrong answer: "+ oops;
+
+    } else {
+
+        alert("Sorry")
+        oops = oops+1
+
+        out.innerHTML="Correct amswer: "+ good + "Wrong answer: "+ oops;
+    }
+}
+</script>
+</body>
+</html>
