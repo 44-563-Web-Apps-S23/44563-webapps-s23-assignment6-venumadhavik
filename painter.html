@@ -38,7 +38,12 @@ function checkPainter(){
         good=good+1
         out.innerHTML=" Correct answer: "+ good + "Wrong answer: "+ oops;
 
-    } else {
+    }
+    else if (oops >= 10) {
+                document.getElementById("btn").onclick = giveAlert();             
+                out.innerHTML = "Correct guess: " + good + " Wrong guess: " + oops;
+            }
+     else {
 
         alert("Sorry")
         oops = oops+1
