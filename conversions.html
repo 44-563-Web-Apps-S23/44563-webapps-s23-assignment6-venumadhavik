@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversions</title>
+    </head>
+ 
+<body>
+
+<h2>Kathi Venumadhavi shows currency conversions</h2>
+
+<form>
+    <label for="form1_base">Enter base amount</label>
+    <input type ="number" id="form1_base" name="form1_base" value=50> <br>
+
+    <label for="form1_conversion">Enter the conversion rate</label>
+    <input type ="number" id="form1_conversion" name="form1_conversion" value=35> <br>
+
+    <input type="button" onclick="convert()" value="Show conversions">
+</form>
+<p id="result">This text will be replaced </p>
+
+<form>
+    <input type="radio" id="average" name="calculations" onclick="chooseOp()" value="mean"  checked >
+    <label for="average">average</label></br>
+  
+    <input type="radio" id="max" name="calculations" onclick="chooseOp()" value="maximum">
+    <label for="min">max</label></br>
+  
+    <input type="radio" id="min" name="calculations" onclick="chooseOp()" value="minimum">
+    <label for="min">min</label></br>
+  </form>
+  <p id="result2">This text will be replaced </p>
+
+
+
+<script> 
+
+function convert(){
+    base = document.getElementById("form1_base").value;
+    value= document.getElementById("form1_conversion").value;
+    toShow="";
+    out = document.getElementById("result")
+    
+    for(let i=0;i<5;i++){
+        
+        let conversion=base*value;
+        toShow=toShow+" "+ base +" is "+ conversion.toFixed(1)+";";
+        base=base*2
+    }
+    document.getElementById("result").innerHTML = "Conversions are:" + toShow;
+}
+
+function chooseOp(){
+    let results = 0;
+            let base = document.getElementById("form1_base").value;
+            let conversion = document.getElementById("form1_conversion").value;
+            let average = document.getElementById("average").checked;
+            let max = document.getElementById("max").checked;
+            let min = document.getElementById("min").checked;
+            if (average) {
+                results = (parseInt(base)+parseInt(conversion))/2;
+            }
+            else if (max) {
+                results = Math.max(base,conversion);
+            }
+            else if (min) {
+                results = Math.min(base,conversion);
+            }
+            document.getElementById("result2").innerHTML = results
+}
+</script>
+
+</body>
+</html>
